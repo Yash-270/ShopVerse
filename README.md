@@ -39,3 +39,16 @@ A full-stack e-commerce web application built with modern technologies, featurin
 ---
 
 ## 📁 Project Structure
+ShopVerse/
+├── frontend/
+│ └── my-app/
+├── backend/
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1️⃣ Clone Repository
+```bash
+git clone https://github.com/Yash-270/ShopVerse.git
+cd ShopVerse
