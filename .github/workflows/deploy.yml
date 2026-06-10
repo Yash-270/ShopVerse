@@ -40,4 +40,14 @@ jobs:
             sudo docker run -d \
               -p 5000:5000 \
               --name shopverse \
+              -e MONGODB_URL="${{ secrets.MONGODB_URL }}" \
+              -e JWT_SECRET="${{ secrets.JWT_SECRET }}" \
+              -e EMAIL_PASS="${{ secrets.EMAIL_PASS }}" \
+              -e MAIL_FROM="${{ secrets.MAIL_FROM }}" \
+              -e PORT="${{ secrets.PORT }}" \
+              -e RAZORPAY_KEY="${{ secrets.RAZORPAY_KEY }}" \
+              -e RAZORPAY_SECRET="${{ secrets.RAZORPAY_SECRET }}" \
+              -e TWILIO_ACCOUNT_SID="${{ secrets.TWILIO_ACCOUNT_SID }}" \
+              -e TWILIO_AUTH_TOKEN="${{ secrets.TWILIO_AUTH_TOKEN }}" \
+              -e TWILIO_PHONE="${{ secrets.TWILIO_PHONE }}" \
               yash7827/shopverse-backend:latest
