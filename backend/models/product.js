@@ -34,7 +34,7 @@ const productSchema=new mongoose.Schema({
       index: true
     },
 
-    // ✅ common brand (sab ke liye ek hi field)
+    
     brand: {
       type: String
     },
