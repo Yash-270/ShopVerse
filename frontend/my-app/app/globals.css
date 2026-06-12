@@ -1,0 +1,194 @@
+@import "tailwindcss";
+
+/* ===============================
+   ROOT THEME VARIABLES
+================================= */
+
+:root {
+  --bg-primary: #0f0f0f;
+  --bg-secondary: #1a1a1a;
+  --text-primary: #f5f5f5;
+  --text-muted: #9ca3af;
+  --accent-gold: #d4a373;
+  --accent-dark: #8b5e3c;
+  --border-color: #2a2a2a;
+}
+
+/* ===============================
+   GLOBAL RESET
+================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Prevent white flash */
+html {
+  background: var(--bg-primary);
+}
+
+/* ===============================
+   LAYOUT STRUCTURE
+================================= */
+
+body {
+  min-height: 100vh;
+}
+
+.main-container {
+  min-height: 100vh;
+  padding: 40px 80px;
+}
+
+@media (max-width: 768px) {
+  .main-container {
+    padding: 20px;
+  }
+}
+
+/* ===============================
+   TYPOGRAPHY
+================================= */
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* ===============================
+   LINKS
+================================= */
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent-gold);
+}
+
+/* ===============================
+   BUTTON BASE
+================================= */
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ===============================
+   INPUT / FORM BASE
+================================= */
+
+input,
+select,
+textarea {
+  font-family: inherit;
+  outline: none;
+}
+
+/* Dark autofill fix */
+input:-webkit-autofill {
+  box-shadow: 0 0 0 1000px #111 inset !important;
+  -webkit-text-fill-color: #fff !important;
+}
+
+/* ===============================
+   SCROLLBAR (DARK PREMIUM)
+================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-dark);
+}
+
+/* ===============================
+   TEXT SELECTION
+================================= */
+
+::selection {
+  background: var(--accent-dark);
+  color: white;
+}
+
+/* ===============================
+   IMAGE DEFAULT
+================================= */
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ===============================
+   UTILITY HELPERS
+================================= */
+
+.border-dark {
+  border: 1px solid var(--border-color);
+}
+
+.bg-dark-card {
+  background: var(--bg-secondary);
+}
+
+.text-accent {
+  color: var(--accent-gold);
+}
+
+.shadow-premium {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* ===============================
+   SMOOTH TRANSITIONS GLOBAL
+================================= */
+
+* {
+  transition: background-color 0.2s ease,
+              border-color 0.2s ease,
+              color 0.2s ease;
+}
+
