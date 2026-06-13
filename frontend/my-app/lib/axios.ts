@@ -2,7 +2,7 @@
 import axios, { InternalAxiosRequestConfig } from "axios";
 
 const API = axios.create({
-  baseURL: "http://56.228.30.52:5000"
+  baseURL: "https://shopverse.duckdns.org"
 });
 
 // Token auto attach
