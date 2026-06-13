@@ -1,6 +1,5 @@
 "use client";
 import API from "@/lib/axios";
-import { useSearchParams } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react"
 
 type Info={
@@ -23,8 +22,10 @@ const AddEdit=()=>{
         gender: ""
     });
 
-    const params=useSearchParams();
-    const id=params.get("id");
+   const id =
+  typeof window !== "undefined"
+    ? new URLSearchParams(window.location.search).get("id")
+    : null;
      const handleChange=(e: ChangeEvent<HTMLInputElement | HTMLSelectElement>)=>{
         setAdd({...add,[e.target.name]: e.target.value});
     }

@@ -1,14 +1,20 @@
 "use client";
 import API from "@/lib/axios";
-import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, useEffect, useState } from "react";
 
 const RecoverPassword = () => {
   const route=useRouter();
-  const params=useSearchParams();
-  const prefill=params.get("value");
-  const keyval=params.get("keyedit");
+
+const prefill =
+  typeof window !== "undefined"
+    ? new URLSearchParams(window.location.search).get("value")
+    : null;
+
+const keyval =
+  typeof window !== "undefined"
+    ? new URLSearchParams(window.location.search).get("keyedit")
+    : null;
   const [identify, setIdentify] = useState("");
   const [otp, setOtp] = useState("");
   const [otpSent, setOtpSent] = useState(false);

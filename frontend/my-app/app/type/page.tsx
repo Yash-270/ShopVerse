@@ -1,12 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
 
 export default function TypeSelector() {
-  const params = useSearchParams();
-  const category = params.get("category");
-  const type = params.get("type");
+const params =
+  typeof window !== "undefined"
+    ? new URLSearchParams(window.location.search)
+    : null;
+
+const category = params?.get("category");
+const type = params?.get("type");
   
 const TYPES_BY_CATEGORY: Record<string, string[]> = {
   mens: ["shirt", "pant", "suit", "jeans"],

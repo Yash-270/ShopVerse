@@ -1,7 +1,6 @@
 "use client";
 import API from "@/lib/axios";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
  type Info={
@@ -12,9 +11,13 @@ import { ChangeEvent, FormEvent, useState } from "react";
 }
 const Signup=()=>{
   const route=useRouter();
-  const searchParams = useSearchParams();
-  const verified = searchParams.get("verified");
-  const isVerified=verified === "true"
+  const params =
+  typeof window !== "undefined"
+    ? new URLSearchParams(window.location.search)
+    : null;
+
+const verified = params?.get("verified");
+const isVerified = verified === "true";
     const[form,setForm]=useState<Info>({
         name:"",
         identify:"",

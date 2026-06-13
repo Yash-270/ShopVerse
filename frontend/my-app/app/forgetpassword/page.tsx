@@ -1,12 +1,14 @@
 "use client";
 
 import API from "@/lib/axios";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
 
 export default function ForgetPassword() {
-  const params = useSearchParams();
-  const identifier = params.get("value"); // email or phone
+ const identifier =
+  typeof window !== "undefined"
+    ? new URLSearchParams(window.location.search).get("value")
+    : null; // email or phone
   const route = useRouter();
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");

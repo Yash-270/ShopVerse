@@ -2,7 +2,6 @@
 
 import API from "@/lib/axios";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 type Product = {
@@ -22,11 +21,10 @@ type Product = {
 };
 
 export default function Products() {
-  const params = useSearchParams();
-  const [category, setCategory] = useState(params.get("category") || "");
-  const [type, setType] = useState(params.get("type") || "");
-  const [page, setPage] = useState(1);
-  const search = params.get("search");      
+  const [category, setCategory] = useState("");
+const [type, setType] = useState("");
+const [search, setSearch] = useState("");
+  const [page, setPage] = useState(1);  
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -95,11 +93,15 @@ export default function Products() {
     }
   };
 
-  useEffect(()=>{
-    setCategory(params.get("category") || "");
-    setType(params.get("type") || "");
-  },[params])
+useEffect(() => {
+  if (typeof window === "undefined") return;
 
+  const params = new URLSearchParams(window.location.search);
+
+  setCategory(params.get("category") || "");
+  setType(params.get("type") || "");
+  setSearch(params.get("search") || "");
+}, []);
 
   useEffect(() => {
       fetchProducts();

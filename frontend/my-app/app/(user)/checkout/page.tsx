@@ -2,7 +2,7 @@
 
 import API from "@/lib/axios";
 import { useEffect, useState } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
+import {  useRouter } from "next/navigation";
 
 type AddressInfo = {
   _id: string;
@@ -33,11 +33,19 @@ type Product = {
 };
 
 export default function Payment() {
-  const params = useSearchParams();
   const router = useRouter();
 
-  const productId = params.get("product");
-  const qty = Number(params.get("qty")) || 1;
+ const productId =
+  typeof window !== "undefined"
+    ? new URLSearchParams(window.location.search).get("product")
+    : null;
+
+const qty =
+  typeof window !== "undefined"
+    ? Number(
+        new URLSearchParams(window.location.search).get("qty")
+      ) || 1
+    : 1;
 
   const [addresses, setAddresses] = useState<AddressInfo[]>([]);
   const [product, setProduct] = useState<Product | null>(null);
