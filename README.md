@@ -1,6 +1,6 @@
 # 🛒 ShopVerse – Full Stack E-Commerce Platform
 
-A full-stack e-commerce web application built with modern technologies, featuring secure authentication, product management, cart system, and payment integration.
+A full-stack e-commerce web application built with modern technologies, featuring secure authentication, product management, cart system, and payment integration..
 
 ---
 
